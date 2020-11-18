@@ -12,9 +12,11 @@ int main(int argc, char *argv[])
     // to be used in command line. Second parameter is a type
     // of that option, wrapped in value<> class. Third parameter
     // must be a short description of that option.
+    int apples_var = 0;
+    int oranges_var = 0;
     desc.add_options()
-        ("apples", opt::value<int>(), "how many apples do you have")
-        ("oranges", opt::value<int>(), "how many oranges do you have")
+        ("apples", opt::value<int>(&apples_var)->required(), "how many apples do you have")
+        ("oranges", opt::value<int>(&oranges_var)->required(), "how many oranges do you have")
         ("help", "produce help message");
 
     // Variable to store our command line arguments.
@@ -29,11 +31,8 @@ int main(int argc, char *argv[])
         std::cout << desc << "\n";
         return 1;
     }
-
-    if(vm.count("apples") == 0 || vm.count("oranges") == 0)
-        return 1;
-        
-    std::cout << "Fruits count: " << vm["apples"].as<int>() + vm["oranges"].as<int>() << std::endl;
+    
+    std::cout << "Fruits count: " << apples_var + oranges_var << std::endl;
     
     return 0;
 }
