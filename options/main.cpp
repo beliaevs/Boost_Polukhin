@@ -23,8 +23,17 @@ int main(int argc, char *argv[])
     opt::variables_map vm;
     // Parsing and storing arguments.
     opt::store(opt::parse_command_line(argc, argv, desc), vm);
-    // Must be called after all the parsing and storing.
-    opt::notify(vm);
+    try
+    {
+        // Must be called after all the parsing and storing.
+        opt::notify(vm);
+    }
+    catch(const opt::required_option& e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+        std::cout << desc << "\n";
+        return 2;
+    }
 
     if (vm.count("help")) 
     {
