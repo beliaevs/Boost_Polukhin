@@ -52,7 +52,7 @@ void boost_any_test()
     // will return an NULL pointer.
     std::string* s2 = boost::any_cast<std::string>(&variable);
     if(s2)
-        std::cout << s2 << "\n"; 
+        std::cout << *s2 << "\n"; 
     std::cout << s1 << "\n";
 }
 
