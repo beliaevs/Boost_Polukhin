@@ -29,6 +29,9 @@ void std_variant_test()
     my_var_t x;
     std::cout << "std index: " << x.index() << "\n";
     assert(x.index() == 0);
+    x = std::string("Hi!");
+    auto s = std::get_if<std::string>(&x);
+    std::cout << *s << "\n";
 }
 
 void boost_any_test()
