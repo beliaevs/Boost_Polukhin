@@ -1,13 +1,13 @@
-options_:
-	cd options; make; cd ..
+ALL = options any_variant
+.PHONY: all $(ALL)
 
-any_variant_:
-	cd any_variant; make; cd ..
+all: $(ALL)
 
-all: options_ any_variant_
-	echo "making all"
+$(ALL):
+	cd $@; $(MAKE); cd ..
 
 clean:
-	cd options; make clean; cd ../any_variant; make clean; cd ..
-
+	for d in $(ALL); do \
+		(cd $$d; $(MAKE) clean; cd ..);\
+	done
 
