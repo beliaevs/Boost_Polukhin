@@ -2,7 +2,7 @@
 Sample programs from the book "Boost C++ Application Development" by Anton Polukhin.
 
 # Building
-Makefiles for building under linux are provided
+Makefiles for building under linux are provided.
 CMakeLists.txt for cmake are also here.
 To use them simply create "build" subdirectory, cd into it and run 
 
