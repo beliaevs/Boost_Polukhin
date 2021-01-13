@@ -2,4 +2,6 @@ options/my_app
 any_variant/any_variant
 *.exe
 .vscode
+build
+
 
