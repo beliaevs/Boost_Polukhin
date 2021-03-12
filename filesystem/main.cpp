@@ -8,7 +8,7 @@ int main()
 
     for(; begin != end; ++begin)
     {
-        auto fs = status(*begin);
+        auto fs = begin->status();
         switch(fs.type())
         {
             case boost::filesystem::regular_file:
