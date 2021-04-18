@@ -3,5 +3,8 @@ any_variant/any_variant
 *.exe
 .vscode
 build
+.vs
+x64
+
 
 
