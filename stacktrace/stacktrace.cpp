@@ -4,7 +4,7 @@
 void call()
 {
 	std::cout <<"call\n";
-	boost::stacktrace::stacktrace();
+	std::cout << boost::stacktrace::stacktrace();
 }
 
 void f()
