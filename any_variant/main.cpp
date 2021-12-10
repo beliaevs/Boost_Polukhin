@@ -6,6 +6,11 @@
 #include <any>
 #include <variant>
 
+const char* get_boost_version()
+{
+    return BOOST_LIB_VERSION;
+}
+
 void boost_variant_test()
 {
     using my_var_t = boost::variant<int, const char*, std::string>;
@@ -70,6 +75,7 @@ void std_any_test()
 
 int main() 
 {
+    std::cout << "using boost: " << get_boost_version() << "\n";
     boost_any_test();
     std_any_test();
     boost_variant_test();
