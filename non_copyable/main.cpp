@@ -1,9 +1,10 @@
 #include<iostream>
-
+#include<boost/version.hpp>
 #include "myclass.h"
 
 int main()
 {
+	std::cout << "Boost version: " << BOOST_LIB_VERSION << "\n";
 	MyClass myclass("hello!");
 	MyClass a;
 	std::cout << myclass.name() << ", " << a.name() << "\n";
