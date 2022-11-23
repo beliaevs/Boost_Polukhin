@@ -13,6 +13,3 @@ The article is [here](https://blog.j-labs.pl/find-a-better-solution-with-boost)
 
 * tokenizer
 * asio
-
-
-

@@ -2,6 +2,8 @@
 #include<boost/container/small_vector.hpp>
 #include<boost/container/static_vector.hpp>
 #include<boost/circular_buffer.hpp>
+#include<boost/bimap.hpp>
+
 class Spy
 {
     public:
@@ -78,6 +80,16 @@ int main()
         {
             std::cout << a.get() << "\n";
         }
-    
+    }
+    {
+        std::cout << "bimap\n";
+        using bimap_num2char = boost::bimap<boost::bimaps::set_of<int>, boost::bimaps::set_of<char>>;
+        bimap_num2char m;
+        m.insert({1, 'a'});
+        m.insert({2, 'b'});
+        auto res = m.left.find(1);
+        std::cout << res->second << "\n";
+        auto other = m.right.find('b');
+        std::cout << other->second << "\n";
     }
 }
