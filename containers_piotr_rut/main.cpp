@@ -1,7 +1,7 @@
 #include<iostream>
 #include<boost/container/small_vector.hpp>
 #include<boost/container/static_vector.hpp>
-
+#include<boost/circular_buffer.hpp>
 class Spy
 {
     public:
@@ -39,6 +39,7 @@ class Spy
 int main()
 {
     {
+        std::cout << "small vector\n";
         boost::container::small_vector<Spy, 4> v;
         std::cout << v.capacity() << "\n";
         v.emplace_back(1);
@@ -49,6 +50,7 @@ int main()
         }
     }
     {
+        std::cout << "static vector\n";
         boost::container::static_vector<Spy, 4> v;
         for(int i = 0; i < 4; ++i)
         {
@@ -62,5 +64,20 @@ int main()
         {
             std::cout << e.what() << '\n';
         }
+    }
+    {
+        std::cout << "circular buffer\n";
+        boost::circular_buffer<Spy> buf;
+        buf.set_capacity(4);
+        for(int i = 0; i != 5; ++i)
+        {
+            buf.push_back(Spy(i));
+        }
+
+        for(auto& a: buf)
+        {
+            std::cout << a.get() << "\n";
+        }
+    
     }
 }
